@@ -351,3 +351,11 @@ form button:hover {
     50% { text-shadow: 0 0 10px #00ffcc, -2px 0 #ff00cc, 2px 0 #00ccff; }
     100% { text-shadow: 0 0 10px #00ffcc, 2px 0 #ff00cc, -2px 0 #00ccff; }
 }
+.collection-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: #ccc;
+}
