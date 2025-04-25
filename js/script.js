@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Lấy các phần tử cần thiết
     const filterButtons = document.querySelectorAll('.filter-btn');
     const nftCards = document.querySelectorAll('.nft-card');
     const nftCounts = document.querySelectorAll('.nft-count');
@@ -9,15 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('nft-modal');
     const modalImage = document.getElementById('modal-image');
     const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
     const modalLink = document.getElementById('modal-link');
     const closeModal = document.getElementById('close-modal');
 
-    // Cấu hình phân trang
     const itemsPerPage = 6;
     let currentPage = 1;
     let filteredCards = Array.from(nftCards);
 
-    // Hàm đếm số lượng NFT
     function updateNFTCounts(cards) {
         const totalNFTs = cards.length;
         document.querySelector('.nft-count[data-count="all"]').textContent = totalNFTs;
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Hàm hiển thị phân trang
     function renderPagination() {
         const totalItems = filteredCards.length;
         const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -54,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
         nextPageBtn.disabled = currentPage === totalPages;
     }
 
-    // Hàm hiển thị NFT theo trang
     function renderNFTs() {
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
@@ -69,39 +65,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Xử lý click vào NFT
-nftCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const imgSrc = card.querySelector('img').src;
-        const title = card.querySelector('h3').textContent;
-        const description = card.querySelector('p').textContent; // Lấy mô tả
-        const link = card.querySelector('.nft-button').href;
+    nftCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const imgSrc = card.querySelector('img').src;
+            const title = card.querySelector('h3').textContent;
+            const description = card.querySelector('p').textContent;
+            const link = card.querySelector('.nft-button').href;
 
-        modalImage.src = imgSrc;
-        modalTitle.textContent = title;
-        modalDescription.textContent = description; // Hiển thị mô tả
-        modalLink.href = link;
+            modalImage.src = imgSrc;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalLink.href = link;
 
-        modal.style.display = 'flex';
+            modal.style.display = 'flex';
+        });
     });
-});
-    // Đóng modal
+
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
 
-    // Đóng modal khi click bên ngoài
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
         }
     });
 
-    // Gọi hàm ban đầu
     updateNFTCounts(Array.from(nftCards));
     renderNFTs();
     renderPagination();
 
-    // Xử lý bộ lọc
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -119,7 +112,6 @@ nftCards.forEach(card => {
         });
     });
 
-    // Xử lý nút Back/Next
     prevPageBtn.addEventListener('click', () => {
         if (currentPage > 1) {
             currentPage--;
