@@ -369,3 +369,7 @@ form button:hover {
 .cta-button, .cta-button.secondary {
     margin: 0; /* Xóa margin mặc định để tránh lệch */
 }
+.nft-count {
+    font-weight: bold;
+    color: #00ffcc; /* Màu nổi bật, có thể thay đổi */
+}
