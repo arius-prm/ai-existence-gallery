@@ -602,3 +602,11 @@ form button:hover {
 .social-links a:hover {
     color: #00ccaa;
 }
+.social-link.opensea-link {
+    background: #00ffcc; /* Màu nổi bật cho OpenSea */
+    color: #0a0a0a;
+}
+
+.social-link.opensea-link:hover {
+    background: #00ccaa;
+}
