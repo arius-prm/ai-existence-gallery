@@ -7,8 +7,12 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
     background: #0a0a0a;
     color: #fff;
+    padding-bottom: 80px; /* Dành không gian cho footer cố định */
 }
 
 /* Header */
@@ -513,17 +517,21 @@ form button:hover {
     }
 }
 .site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     text-align: center;
-    padding: 2rem 0;
-    background: #1a1a1a;
-    color: #ccc;
-    border-top: 1px solid #333;
-    margin-top: 2rem;
+    padding: 1rem 0;
+    background: transparent; /* Nền trong suốt */
+    color: #fff; /* Màu chữ trắng để nổi trên background */
+    z-index: 10; /* Đảm bảo footer nằm trên các phần tử khác */
 }
 
 .site-footer p {
-    margin: 0 0 1rem;
+    margin: 0 0 0.5rem;
     font-size: 0.9rem;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Thêm bóng chữ để dễ đọc */
 }
 
 .social-links {
@@ -537,6 +545,7 @@ form button:hover {
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Thêm bóng chữ cho liên kết */
 }
 
 .social-links a:hover {
