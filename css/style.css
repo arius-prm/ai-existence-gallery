@@ -359,3 +359,13 @@ form button:hover {
     text-align: center;
     color: #ccc;
 }
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cta-button, .cta-button.secondary {
+    margin: 0; /* Xóa margin mặc định để tránh lệch */
+}
