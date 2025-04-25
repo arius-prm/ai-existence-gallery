@@ -176,8 +176,11 @@ nav ul li a:hover, nav ul li a.active {
 
 .nft-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
+    padding: 2rem;
+    min-height: 60vh; /* Đảm bảo chiều cao tối thiểu để phân trang không đè lên */
+    position: relative;
 }
 
 .nft-card {
@@ -378,7 +381,8 @@ form button:hover {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin: 2rem 0;
+    margin: 3rem 0; /* Tăng khoảng cách trên/dưới để phân trang nằm xa NFT */
+    padding-bottom: 2rem; /* Thêm padding để tạo khoảng trống dưới cùng */
 }
 
 .pagination button {
