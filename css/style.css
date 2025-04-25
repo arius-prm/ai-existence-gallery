@@ -373,3 +373,61 @@ form button:hover {
     font-weight: bold;
     color: #00ffcc; /* Màu nổi bật, có thể thay đổi */
 }
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    background: #00ffcc;
+    color: #0a0a0a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pagination button:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: #00ccaa;
+}
+
+#page-numbers {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.page-number {
+    padding: 0.5rem 1rem;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.page-number.active {
+    background: #00ffcc;
+    color: #0a0a0a;
+}
+
+.page-number:hover:not(.active) {
+    background: #555;
+}
+
+/* Ẩn NFT ngoài trang hiện tại */
+.nft-card {
+    display: none;
+}
+
+.nft-card.visible {
+    display: block;
+}
