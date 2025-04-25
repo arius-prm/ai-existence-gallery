@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Xử lý click vào NFT
-    // Xử lý click vào NFT
     nftCards.forEach(card => {
         card.addEventListener('click', () => {
             const imgSrc = card.querySelector('img').src;
