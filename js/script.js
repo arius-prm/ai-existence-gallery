@@ -69,19 +69,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Xử lý click vào NFT
-    nftCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const imgSrc = card.querySelector('img').src;
-            const title = card.querySelector('h3').textContent;
-            const description = card.querySelector('p').textContent; // Lấy mô tả
-            const link = card.querySelector('.nft-button').href;
+nftCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const imgSrc = card.querySelector('img').src;
+        const title = card.querySelector('h3').textContent;
+        const description = card.querySelector('p').textContent; // Lấy mô tả
+        const link = card.querySelector('.nft-button').href;
 
-            modalImage.src = imgSrc;
-            modalTitle.textContent = title;
-            modalDescription.textContent = description; // Hiển thị mô tả
-            modalLink.href = link;
+        modalImage.src = imgSrc;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description; // Hiển thị mô tả
+        modalLink.href = link;
 
-            modal.style.display = 'flex';
+        modal.style.display = 'flex';
     });
 });
     // Đóng modal
