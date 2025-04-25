@@ -131,30 +131,41 @@ nav ul li a:hover, nav ul li a.active {
 
 /* About Section */
 .about {
-    padding: 6rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+    height: 100vh; /* Chiều cao full màn hình */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
-.about h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #00ffcc;
-}
-
-.about p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
 .about-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 400px;
-    margin-top: 2rem;
-    border: 2px solid #00ffcc;
-    border-radius: 5px;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh phủ kín mà không méo */
+    opacity: 0.5; /* Làm mờ ảnh nền để nội dung dễ đọc */
+}
+
+.about-content {
+    position: relative;
+    z-index: 1; /* Đảm bảo nội dung nằm trên ảnh nền */
+    color: #fff;
+    max-width: 800px; /* Giới hạn chiều rộng nội dung */
+    padding: 2rem;
+}
+
+.about-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px #00ffcc; /* Hiệu ứng bóng chữ */
+}
+
+.about-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 /* Collection Section */
