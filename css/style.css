@@ -162,6 +162,8 @@ nav ul li a:hover, nav ul li a.active {
     padding: 6rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem;
+    padding-bottom: 80px; /* Dành không gian cho pagination cố định */
 }
 
 .collection h1 {
@@ -198,16 +200,20 @@ nav ul li a:hover, nav ul li a.active {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
     padding: 2rem;
-    min-height: 60vh; /* Đảm bảo chiều cao tối thiểu để phân trang không đè lên */
+    min-height: 60vh;
     position: relative;
 }
 
 .nft-card {
-    background: #1a1a1a;
+    display: none;
+    background: #222;
     padding: 1rem;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s;
+    height: 100%; /* Đảm bảo chiều cao đồng đều */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .nft-card:hover {
@@ -216,6 +222,8 @@ nav ul li a:hover, nav ul li a.active {
 
 .nft-card img {
     width: 100%;
+    height: 200px; /* Chiều cao cố định cho hình ảnh */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
     border-radius: 5px;
     margin-bottom: 1rem;
 }
@@ -227,8 +235,9 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .nft-card p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
+    flex-grow: 1; /* Đảm bảo phần mô tả chiếm không gian còn lại */
 }
 
 .nft-button {
@@ -238,6 +247,17 @@ nav ul li a:hover, nav ul li a.active {
     color: #0a0a0a;
     text-decoration: none;
     border-radius: 5px;
+}
+.nft-card.visible {
+    display: flex; /* Hiển thị dưới dạng flex để căn chỉnh đồng đều */
+}
+.nft-card .nft-button {
+    padding: 0.5rem 1rem;
+    background: #00ffcc;
+    color: #0a0a0a;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 /* Blog Section */
@@ -396,12 +416,18 @@ form button:hover {
     color: #00ffcc; /* Màu nổi bật, có thể thay đổi */
 }
 .pagination {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin: 3rem 0; /* Tăng khoảng cách trên/dưới để phân trang nằm xa NFT */
-    padding-bottom: 2rem; /* Thêm padding để tạo khoảng trống dưới cùng */
+    background: #1a1a1a;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    z-index: 10;
 }
 
 .pagination button {
@@ -411,16 +437,11 @@ form button:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
 .pagination button:disabled {
     background: #555;
     cursor: not-allowed;
-}
-
-.pagination button:hover:not(:disabled) {
-    background: #00ccaa;
 }
 
 #page-numbers {
@@ -429,12 +450,10 @@ form button:hover {
 }
 
 .page-number {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     background: #333;
-    color: #fff;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
 .page-number.active {

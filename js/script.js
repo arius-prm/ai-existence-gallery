@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const totalItems = filteredCards.length;
         const totalPages = Math.ceil(totalItems / itemsPerPage);
 
+        // Reset current page if it exceeds total pages
+        if (currentPage > totalPages && totalPages > 0) {
+            currentPage = totalPages;
+        } else if (totalPages === 0) {
+            currentPage = 1;
+        }
+
         pageNumbersContainer.innerHTML = '';
         for (let i = 1; i <= totalPages; i++) {
             const pageBtn = document.createElement('div');
@@ -48,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         prevPageBtn.disabled = currentPage === 1;
-        nextPageBtn.disabled = currentPage === totalPages;
+        nextPageBtn.disabled = currentPage === totalPages || totalPages === 0;
     }
 
     function renderNFTs() {
@@ -64,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Xử lý click vào NFT
     nftCards.forEach(card => {
         card.addEventListener('click', () => {
             const imgSrc = card.querySelector('img').src;
@@ -105,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 category === 'all' || card.getAttribute('data-category') === category
             );
 
-            currentPage = 1;
+            currentPage = 1; // Reset về trang 1 khi lọc
             updateNFTCounts(filteredCards);
             renderNFTs();
             renderPagination();
